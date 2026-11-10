@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MindScope AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <h1>🧠 MindScope AI</h1>
+
+            <p>💙 Your feelings matter. Let AI understand you.</p>
+
+        </header>
+
+
+        <!-- INPUT -->
+
+        <section class="input-section">
+
+            <label for="userText">How are you feeling?</label>
+
+            <textarea
+                id="userText"
+                placeholder="Write about how you are feeling..."
+                rows="4"
+            ></textarea>
+
+            <button id="analyzeBtn" onclick="analyzeFeeling()">
+                Analyze 🚀
+            </button>
+
+        </section>
+
+
+        <!-- LOADING -->
+
+        <div id="loading" class="loading hidden">
+            ✨ Analyzing your feelings...
+        </div>
+
+
+        <!-- ERROR -->
+
+        <div id="errorMessage" class="error-message hidden"></div>
+
+
+        <!-- RESULT -->
+
+        <section id="resultSection" class="result-section hidden">
+
+            <div class="result-card">
+
+                <h2>
+                    📋 <span id="emotion"></span>
+                </h2>
+
+                <p>
+                    Confidence:
+                    <span id="confidence"></span>
+                </p>
+
+                <p id="supportMessage"></p>
+
+                <p id="severity"></p>
+
+            </div>
+
+
+            <!-- SAFETY NOTE -->
+
+            <div id="safetyMessage" class="safety-message hidden">
+
+                💙 This prediction is not a diagnosis. If you may be
+                in immediate danger or thinking about harming yourself,
+                please contact emergency services or someone you trust.
+
+            </div>
+
+
+            <!-- GRAPH -->
+
+            <div class="chart-card">
+
+                <h2>Prediction Confidence</h2>
+
+                <div class="chart-container">
+
+                    <canvas id="confidenceChart"></canvas>
+
+                </div>
+
+            </div>
+
+
+            <!-- HISTORY -->
+
+            <div class="history-card">
+
+                <h2>🕒 Recent Analysis</h2>
+
+                <ul id="historyList"></ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            💜 Made with care | MindScope AI
+
+        </footer>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
